@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp.Tests;
+using Non_Pocket_Pay.Tests;
 using DataDriven.Utilities;
 using Non_Pocket_Pay.Pages;
 
