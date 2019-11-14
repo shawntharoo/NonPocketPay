@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ConsoleApp.Pages
+namespace Non_Pocket_Pay.Pages
 {
     class EditCompanyPage
     {   //create a driver
@@ -24,7 +24,7 @@ namespace ConsoleApp.Pages
         By noCompany = By.XPath("//td[contains(text(),'No data available!')]");
         By rowCount = By.XPath("//span[@class='jtable-page-size-change']//select");
         By contactSurcharging = By.Id("ContactlessSurcharingEnabled");
-
+        By companyType = By.Id("CustomerType");
 
         public void setrowCount(string varrowcount)
         {
@@ -72,11 +72,16 @@ namespace ConsoleApp.Pages
             driver.FindElement(companyName).SendKeys(newcompanyname);
 
         }
+        public void setCompanyType(string newcompanytype)
+        {
+            driver.FindElement(companyType).SendKeys(newcompanytype);
 
+        }
         public void clickSave()
         {
             driver.FindElement(saveButton).Click();
         }
+
 
 
 

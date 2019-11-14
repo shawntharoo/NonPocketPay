@@ -1,17 +1,17 @@
 ﻿using OpenQA.Selenium;
 
 
-namespace ConsoleApp.Pages
+namespace Non_Pocket_Pay.Pages
 {
     class AddCompanyPage
     {   //create a driver
         IWebDriver driver;
-       
+
         //constructor
         public AddCompanyPage(IWebDriver driver)
         {
             this.driver = driver;
-            
+
         }
 
         By loginInput = By.Id("UserName");
@@ -31,7 +31,7 @@ namespace ConsoleApp.Pages
         By pinpadFiles = By.XPath("//input[@class='default']");
         By createButton = By.Id("company-create");
 
-     
+
         public void setUserName(string username)
         {
             driver.FindElement(loginInput).SendKeys(username);
@@ -96,7 +96,7 @@ namespace ConsoleApp.Pages
         {
             driver.FindElement(bankSetting).Click();
         }
-        
+
         // please check this
         public void setpinpadFile(string varpinpadfile)
         {

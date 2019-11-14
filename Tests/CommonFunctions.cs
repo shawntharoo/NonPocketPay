@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
-using ConsoleApp.Pages;
+using Non_Pocket_Pay.Pages;
 
-namespace ConsoleApp.Tests
+namespace Non_Pocket_Pay.Common
 {
     class CommonFunctions
     {
@@ -20,7 +17,8 @@ namespace ConsoleApp.Tests
         {
 
             LoginPage loginP = new LoginPage(driver);
-            using (StreamReader file = File.OpenText(@"D:\Projects\ConsoleApp\Data_Source\Data_Set.json"))
+            string fullPath = getDatasourcePath();
+            using (StreamReader file = File.OpenText(fullPath))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
                 JObject data = (JObject)JToken.ReadFrom(reader);
@@ -30,6 +28,12 @@ namespace ConsoleApp.Tests
                 loginP.setPassword(data["password"].ToString());
                 loginP.clickLogin();
             }
+        }
+
+        public string getDatasourcePath()
+        {
+            string fullPath = Path.GetFullPath("Data_Source\\Data_Set.json");
+            return fullPath;
         }
     }
 }

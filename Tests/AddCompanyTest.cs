@@ -1,38 +1,42 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using ConsoleApp.Pages;
+using Non_Pocket_Pay.Pages;
+using Non_Pocket_Pay.Common;
 using NUnit.Framework;
 using Utility.JSONRead;
 using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
-using Non_Pocket_Pay.Pages;
 
-namespace ConsoleApp.Tests
+namespace Non_Pocket_Pay.Tests
 {
     class AddCompanyTest
     {
         [Test]
         public void addCompany()
         {
-            globals.expRpt.createTest("Add compay");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Add company test");
+            
+            IWebDriver driver = new ChromeDriver();
+            HomePage home = new HomePage(driver);
+
+            globals.expRpt.createTest("Add Company Test");
+            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Company added Sucessfully");
             globals.expRpt.flushReport();
 
-            IWebDriver driver = new ChromeDriver();
-            LoginPage loginP = new LoginPage(driver);
-            HomePage home = new HomePage(driver);
-            JSONReader JSRead = new JSONReader();
+
             AddCompanyPage addCompany = new AddCompanyPage(driver);
             EditCompanyPage editCompany = new EditCompanyPage(driver);
+            EditCompanyPage searchCompany = new EditCompanyPage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
-
-            using (StreamReader file = File.OpenText(@"D:\Projects\ConsoleApp\Data_Source\Data_Set.json"))
+            string fullpath = comFunc.getDatasourcePath();
+            using (StreamReader file = File.OpenText(fullpath))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
                 JObject data = (JObject)JToken.ReadFrom(reader);
                 comFunc.loginToApplication();
+
+
 
                 JArray companies = (JArray)data["companies"];
                 for (int i = 0; i < companies.Count; i++)
@@ -45,7 +49,10 @@ namespace ConsoleApp.Tests
 
                     // compare the loaded screen with the expected screen
                     Assert.AreEqual("Company Information", addCompany.getcompanyInfor());
-                    // enter comapny details     
+                    // enter comapny details  
+
+                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Enter Comapny details");
+
                     addCompany.setCompanyName(companies[i]["Company_Name"].ToString());
                     addCompany.setCustomerType((string)companies[i]["Customer_Type"]);
                     addCompany.setadminUserName((string)companies[i]["Admin_Username"]);
@@ -68,16 +75,29 @@ namespace ConsoleApp.Tests
                     Assert.AreEqual("Company List", home.getText());
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
 
-                    // search for the created company 
-                    //editCompany.enterCompanyName(JSRead.jsonReader("../ConsoleApp/Data_Source/data.json", "Company_Name"));
+                   
+                    //// search for the created company 
+                    //searchCompany.enterCompanyName(companies[i]["Company_Name"].ToString());
                     //editCompany.clickGo();
 
-                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
+                    //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
+
+                    //Assert.AreEqual("Edit a company", editCompany.geteditcompanyBanner());
+
+                    //if (editCompany.geteditcompanyBanner().Equals("Edit a company"))
+                    //{
+                    //    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
+                    //}
+                    //else
+                    //{
+                    //    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
+                    //}
                 }
             }
 
             driver.Close();
             driver.Quit();
+            driver.Dispose();
         }
     }
 }

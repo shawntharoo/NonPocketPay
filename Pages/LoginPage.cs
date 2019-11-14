@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 
 
-namespace ConsoleApp.Pages
+namespace Non_Pocket_Pay.Pages
 {
     class LoginPage
     {   //create a driver

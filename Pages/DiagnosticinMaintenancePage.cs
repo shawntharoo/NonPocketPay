@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ConsoleApp.Pages
+namespace Non_Pocket_Pay.Pages
 {
     class DiagnosticinMaintenancePage
     {
@@ -21,7 +21,7 @@ namespace ConsoleApp.Pages
         By serialNumber = By.XPath(" //input[@id='SerialNumberNoCompany']");
         By viewDetailsButton = By.XPath("//div[@class='form-actions']//input[1]");
         By serialDescription = By.XPath("//h3[contains(text(),'Company Details')]");
-        By noPaymentTerminal = By.XPath("//h3[contains(text(),'No payment terminal found with given serial number')]");
+        By noPaymentTerminal = By.XPath("//h2[contains(text(),'Description')]");
         public DiagnosticinMaintenancePage(IWebDriver driver)
         {
             this.driver = driver;

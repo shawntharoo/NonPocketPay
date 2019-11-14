@@ -1,11 +1,11 @@
 ﻿using System;
 using OpenQA.Selenium;
 
-namespace ConsoleApp.Pages
+namespace Non_Pocket_Pay.Pages
 {
     class HomePage
     {
-       IWebDriver driver;
+        IWebDriver driver;
         public HomePage(IWebDriver drivertemp)
         {
             driver = drivertemp;
@@ -13,7 +13,7 @@ namespace ConsoleApp.Pages
 
         By companyList = By.XPath("//h2[contains(text(),'Company List')]");
         By loginText = By.XPath("//p[contains(text(),'Login to your Cloud Eftpos account')]");
-        
+
 
         public string getText()
         {

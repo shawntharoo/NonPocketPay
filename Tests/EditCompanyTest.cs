@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using ConsoleApp.Pages;
+using Non_Pocket_Pay.Pages;
+using Non_Pocket_Pay.Common;
 using NUnit.Framework;
 using Utility.JSONRead;
 using System;
@@ -8,7 +9,7 @@ using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApp.Tests
+namespace Non_Pocket_Pay.Tests
 {
     class EditCompanyTest
     {
@@ -16,33 +17,29 @@ namespace ConsoleApp.Tests
         public void editCompany()
         {
             IWebDriver driver = new ChromeDriver();
-            LoginPage loginP = new LoginPage(driver);
             HomePage home = new HomePage(driver);
-            JSONReader JSRead = new JSONReader();
+            globals.expRpt.createTest("Edit company test");
+            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Company updated sucessfully");
+            globals.expRpt.flushReport();
 
             EditCompanyPage editCompany = new EditCompanyPage(driver);
-            EditCompanyPage companyInfor = new EditCompanyPage(driver);
-            EditCompanyPage searchCompany = new EditCompanyPage(driver);
+            CommonFunctions comFunc = new CommonFunctions(driver);
 
-
-            using (StreamReader file = File.OpenText(@"D:\Projects\ConsoleApp\Data_Source\Data_Set.json"))
+            string fullpath = comFunc.getDatasourcePath();
+            using (StreamReader file = File.OpenText(fullpath))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
                 JObject data = (JObject)JToken.ReadFrom(reader);
-
-
-                driver.Navigate().GoToUrl(data["URL"].ToString());
-                driver.Manage().Window.Maximize();
-                loginP.setUserName(data["User_Name"].ToString());
-                loginP.setPassword(data["password"].ToString());
-                loginP.clickLogin();
-
+                comFunc.loginToApplication();
 
                 Assert.AreEqual("Company List", home.getText());
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30000);
 
-                // search for the company.. update to "Company_Name" later         
-                searchCompany.enterCompanyName(data["searchToEditCompany_Name"].ToString());
+                // search for the company.. update "Company_Name" later         
+                editCompany.enterCompanyName(data["searchtoEditCompany_Name"].ToString());
                 editCompany.clickGo();
+                //searchCompany.enterCompanyName(data["searchtoEditCompany_Name"].ToString());
+                //editCompany.clickGo();
 
                 editCompany.setrowCount(data["Row_Count"].ToString());
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
@@ -54,11 +51,25 @@ namespace ConsoleApp.Tests
                 Assert.AreEqual("Edit a company", editCompany.geteditcompanyBanner());
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
                 //enter comapny details
-                editCompany.setCompanyName("testname");
+                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Update the Company name");
+                editCompany.setCompanyName(data["editCompany_Name"].ToString());
+                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Update the Company type");
+                editCompany.setCompanyName(data["editCustomer_Type"].ToString());
+                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Save Company details");
                 //editCompany.clickcontactSurcharging();
                 editCompany.clickSave();
 
                 //Assert.AreEqual("No data available!", editCompany.getnoCompany());
+
+                if (home.getText().Equals("Company List"))
+                {
+                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Company details updated sucessfully");
+                }
+                else
+                {
+                    globals. expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "Company is not in the system to edit");
+                }
+
 
             }
             driver.Close();

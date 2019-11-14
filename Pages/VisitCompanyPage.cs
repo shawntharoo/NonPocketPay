@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ConsoleApp.Pages
+namespace Non_Pocket_Pay.Pages
 {
     class VisitCompanyPage
     {   //create a driver
@@ -15,7 +15,7 @@ namespace ConsoleApp.Pages
         By loginInput = By.Id("UserName");
         By password = By.Id("Password");
         By loginButton = By.Id("LogOn");
-        By visitCompanyButton = By.XPath("//a[@href='/Admin/Company/Visit/6115d058-c0f4-e911-b62f-0050568b08ee']");
+        By visitCompanyButton = By.XPath("//a[@href='/Admin/Company/Visit/66cb1bb4-28f5-e911-b62f-0050568b08ee']");
         By visitcompanyName = By.XPath("//h2[contains(text(),'QUESTComp0')]");
         By searchCompany = By.XPath("//input[@id='name']");
         By goButton = By.XPath("//button[@id='LoadRecordsButton']");

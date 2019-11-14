@@ -1,14 +1,14 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using ConsoleApp.Pages;
 using NUnit.Framework;
 using Utility.JSONRead;
 using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using Non_Pocket_Pay.Pages;
+using Non_Pocket_Pay.Common;
 
-namespace ConsoleApp.Tests
+namespace Non_Pocket_Pay.Tests
 {
     class LoginTest
     {
@@ -16,16 +16,14 @@ namespace ConsoleApp.Tests
         public void loginSucessfully()
         {
             IWebDriver driver = new ChromeDriver();
-            LoginPage loginP = new LoginPage(driver);
             HomePage home = new HomePage(driver);
-            JSONReader JSRead = new JSONReader();
             CommonFunctions comFunc = new CommonFunctions(driver);
 
-            globals.expRpt.createTest("My Login Test");
+            globals.expRpt.createTest("Login Sucessfully Test");
 
             comFunc.loginToApplication();
 
-            if (home.getText().Equals("Manger Id : mngr184115"))
+            if (home.getText().Equals("Company List"))
             {
                 globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "I have logged in");
             }
@@ -35,9 +33,8 @@ namespace ConsoleApp.Tests
             }
 
 
-
-            globals.expRpt.createTest("My Test");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "This is test 2");
+            //globals.expRpt.createTest("Login Not Sucessfully Test");
+           // globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "Login Not Sucessfully Test");
             globals.expRpt.flushReport();
 
             driver.Close();
@@ -50,28 +47,41 @@ namespace ConsoleApp.Tests
             IWebDriver driver = new ChromeDriver();
             LoginPage loginP = new LoginPage(driver);
             HomePage home = new HomePage(driver);
-            JSONReader JSRead = new JSONReader();
+            CommonFunctions comFunc = new CommonFunctions(driver);
 
-            using (StreamReader file = File.OpenText(@"D:\Projects\ConsoleApp\Data_Source\Data_Set.json"))
+            globals.expRpt.createTest("Login Not Sucessfully Test");
+
+            string fullpath = comFunc.getDatasourcePath();
+            using (StreamReader file = File.OpenText(fullpath))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
                 JObject data = (JObject)JToken.ReadFrom(reader);
-
-
                 driver.Navigate().GoToUrl(data["URL"].ToString());
                 driver.Manage().Window.Maximize();
-                loginP.setUserName("invalid");
-                loginP.setPassword("invalid");
+
+                loginP.setUserName(data["Incorrect_Password"].ToString());
+                loginP.setPassword(data["Incorrect_UserName"].ToString());
                 loginP.clickLogin();
-
-
-                Assert.AreEqual("Login to your Cloud Eftpos account", home.getloginText2());
-
             }
+
+            if (home.getloginText2().Equals("Login to your Cloud Eftpos account"))
+                {
+                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "I haven't logged in");
+
+                }
+                else
+                {
+                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The User logged into the system");
+                }
+
+            globals.expRpt.flushReport();
 
             driver.Close();
             driver.Quit();
         }
+
+
+        
 
     }
 }

@@ -5,12 +5,12 @@
   "BillingPostcode": "3173",
   "BillingState": "VIC",
   "BillingSuburb": "Keysborough",
-  "Company_Name": "QUESTComp09",
+  "Company_Name": "QUESTComp016",
   "Company_Name1": "QUESTComp1",
   "Company_Name2": "QUESTComp2",
   "companyType": "Customer",
-  "Customer_Type": "Customer",
-  "Email": "testemail09@questps.com.au",
+  "Customer_Type": "Dealer",
+  "Email": "testemail016@questps.com.au",
   "Incorrect_Password": "1234",
   "Incorrect_UserName": "Janani",
   "password": "g@t[WAY",
@@ -24,9 +24,11 @@
   "Row_Count": "500",
   "searchCompany_Name": "Sams QA",
   "searchtoEditCompany_Name": "QUESTComp0",
+  "setupCompany": "QUESTComp01",
   "StoreName": "Collins Street Store",
   "Serial_Number": "99991234",
   "Serial_NumberNotUsed": "12345691",
   "URL": "http://test.mel.cloudeftpos.com/Account/LogOn",
   "User_Name": "QuestAdmin"
+}
 }

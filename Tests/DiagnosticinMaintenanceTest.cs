@@ -1,13 +1,14 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using ConsoleApp.Pages;
+using Non_Pocket_Pay.Pages;
+using Non_Pocket_Pay.Common;
 using NUnit.Framework;
 using Utility.JSONRead;
 using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApp.Tests
+namespace Non_Pocket_Pay.Tests
 {
     class DiagnosticinMaintenanceTest
     {
@@ -16,12 +17,15 @@ namespace ConsoleApp.Tests
         {
             IWebDriver driver = new ChromeDriver();
             LoginPage loginP = new LoginPage(driver);
-            HomePage home = new HomePage(driver);
-            JSONReader JSRead = new JSONReader();
-            VisitCompanyPage visitcompany = new VisitCompanyPage(driver);
+            CommonFunctions comFunc = new CommonFunctions(driver);
             DiagnosticinMaintenancePage maintenance = new DiagnosticinMaintenancePage(driver);
 
-            using (StreamReader file = File.OpenText(@"D:\Projects\ConsoleApp\Data_Source\Data_Set.json"))
+            globals.expRpt.createTest("The Seril No in Used Test");
+            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Seril No in Used");
+            globals.expRpt.flushReport();
+
+            string fullpath = comFunc.getDatasourcePath();
+            using (StreamReader file = File.OpenText(fullpath))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
                 JObject data = (JObject)JToken.ReadFrom(reader);
@@ -54,12 +58,15 @@ namespace ConsoleApp.Tests
         {
             IWebDriver driver = new ChromeDriver();
             LoginPage loginP = new LoginPage(driver);
-            HomePage home = new HomePage(driver);
-            JSONReader JSRead = new JSONReader();
-            VisitCompanyPage visitcompany = new VisitCompanyPage(driver);
+            CommonFunctions comFunc = new CommonFunctions(driver);
             DiagnosticinMaintenancePage maintenance = new DiagnosticinMaintenancePage(driver);
 
-            using (StreamReader file = File.OpenText(@"D:\Projects\ConsoleApp\Data_Source\Data_Set.json"))
+            globals.expRpt.createTest("The Seril No is not in Used");
+            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Seril No is not in Used");
+            globals.expRpt.flushReport();
+
+            string fullpath = comFunc.getDatasourcePath();
+            using (StreamReader file = File.OpenText(fullpath))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
                 JObject data = (JObject)JToken.ReadFrom(reader);
@@ -81,7 +88,7 @@ namespace ConsoleApp.Tests
                 maintenance.clickViewDetails();
 
                 //compare the loaded page
-                Assert.AreEqual("No payment terminal found with given serial number", maintenance.getnoPaymentTerminal());
+                Assert.AreEqual("Description", maintenance.getnoPaymentTerminal());
             }
             driver.Close();
             driver.Quit();

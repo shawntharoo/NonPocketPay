@@ -30,6 +30,8 @@ namespace DataDriven.Utilities
             var extent = new ExtentReports();
             extent.AttachReporter(htmlReporter);
             extRptDrv = extent;
+            //extent.AddSystemInfo("Environment", "System Test Environment");
+            //extent.AddSystemInfo("User name", "QuestAdmin");
 
         }
 
