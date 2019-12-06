@@ -10,6 +10,10 @@ using System;
 using System.Collections.Generic;
 using DataDriven.Utilities;
 
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
+
 namespace Non_Pocket_Pay.Tests
 {
     class AddCompanyTest
