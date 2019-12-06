@@ -16,25 +16,25 @@ namespace Non_Pocket_Pay
             globals.expRpt = new ExtentReporter();
             globals.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
 
-            LoginTest logint = new LoginTest();
-            logint.loginSucessfully();
-            logint.loginNotsucessfully();
+            //LoginTest logint = new LoginTest();
+            //logint.loginSucessfully();
+            //logint.loginNotsucessfully();
 
             AddCompanyTest addComp = new AddCompanyTest();
             addComp.addCompany();
 
-            EditCompanyTest editComp = new EditCompanyTest();
-            editComp.editCompany();
+            //EditCompanyTest editComp = new EditCompanyTest();
+            //editComp.editCompany();
 
-            ViewPaymentTerminalGroupTest viewPayTerm = new ViewPaymentTerminalGroupTest();
-            viewPayTerm.viewPaymentTerminalGroup();
+            //ViewPaymentTerminalGroupTest viewPayTerm = new ViewPaymentTerminalGroupTest();
+            //viewPayTerm.viewPaymentTerminalGroup();
 
-            CreatePaymentTerminalGroupTest createPayTerm = new CreatePaymentTerminalGroupTest();
-            createPayTerm.createPaymentTerminalGroup();
+            //CreatePaymentTerminalGroupTest createPayTerm = new CreatePaymentTerminalGroupTest();
+            //createPayTerm.createPaymentTerminalGroup();
 
-            DiagnosticinMaintenanceTest diagMain = new DiagnosticinMaintenanceTest();
-            diagMain.serilNoinUsed();
-            diagMain.serilNoNotUsed();
+            //DiagnosticinMaintenanceTest diagMain = new DiagnosticinMaintenanceTest();
+            //diagMain.serilNoinUsed();
+            //diagMain.serilNoNotUsed();
 
 
         }

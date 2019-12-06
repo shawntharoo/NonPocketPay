@@ -3,11 +3,11 @@ using OpenQA.Selenium;
 using Non_Pocket_Pay.Pages;
 using Non_Pocket_Pay.Common;
 using NUnit.Framework;
-using Utility.JSONRead;
 using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Non_Pocket_Pay.Tests
 {
@@ -21,8 +21,6 @@ namespace Non_Pocket_Pay.Tests
             HomePage home = new HomePage(driver);
 
             globals.expRpt.createTest("Add Company Test");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Company added Sucessfully");
-            globals.expRpt.flushReport();
 
 
             AddCompanyPage addCompany = new AddCompanyPage(driver);
@@ -63,7 +61,7 @@ namespace Non_Pocket_Pay.Tests
                     addCompany.setcompanyType((string)companies[i]["companyType"]);
                     addCompany.setreportingFrequency((string)companies[i]["reportingFrequency"]);
                     addCompany.clickdonationTappoint();
-                    addCompany.clickbankSetting();
+                    //addCompany.clickbankSetting();
                     addCompany.setpinpadFile((string)companies[i]["pinpadFile"]);
 
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
@@ -75,23 +73,28 @@ namespace Non_Pocket_Pay.Tests
                     Assert.AreEqual("Company List", home.getText());
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
 
-                   
-                    //// search for the created company 
-                    //searchCompany.enterCompanyName(companies[i]["Company_Name"].ToString());
-                    //editCompany.clickGo();
 
-                    //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
+                    // search for the created company 
+                    searchCompany.enterCompanyName(companies[i]["Company_Name"].ToString());
+                    editCompany.clickGo();
 
-                    //Assert.AreEqual("Edit a company", editCompany.geteditcompanyBanner());
 
-                    //if (editCompany.geteditcompanyBanner().Equals("Edit a company"))
-                    //{
-                    //    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
-                    //}
-                    //else
-                    //{
-                    //    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
-                    //}
+
+
+
+                
+                    string comp = addCompany.GetSearchedCompany();
+
+                    if(comp == companies[i]["Company_Name"].ToString())
+                    {
+                        globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
+                    }
+                    else
+                    {
+                        globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
+                    }
+
+                    globals.expRpt.flushReport();
                 }
             }
 

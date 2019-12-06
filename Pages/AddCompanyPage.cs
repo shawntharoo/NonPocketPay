@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Collections.Generic;
+using OpenQA.Selenium;
 
 
 namespace Non_Pocket_Pay.Pages
@@ -30,6 +31,7 @@ namespace Non_Pocket_Pay.Pages
         By bankSetting = By.Name("Banks");
         By pinpadFiles = By.XPath("//input[@class='default']");
         By createButton = By.Id("company-create");
+        By searchedCompany = By.XPath("//a[contains(text(),'QUESTComp0J6106')]");
 
 
         public void setUserName(string username)
@@ -108,7 +110,10 @@ namespace Non_Pocket_Pay.Pages
             driver.FindElement(createButton).Click();
         }
 
-
+        public string GetSearchedCompany()
+        {
+            return driver.FindElement(searchedCompany).Text;
+        }
 
     }
 }
