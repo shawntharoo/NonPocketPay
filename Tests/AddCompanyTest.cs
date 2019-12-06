@@ -7,12 +7,6 @@ using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using DataDriven.Utilities;
-
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
-using AventStack.ExtentReports.Reporter.Configuration;
 
 namespace Non_Pocket_Pay.Tests
 {
@@ -24,8 +18,7 @@ namespace Non_Pocket_Pay.Tests
             
             IWebDriver driver = new ChromeDriver();
             HomePage home = new HomePage(driver);
-             ExtentReporter expRpt = new ExtentReporter();
-        expRpt.createTest("Add Company Test");
+            GlobalFunctions.expRpt.createTest("Add Company Test");
 
 
             AddCompanyPage addCompany = new AddCompanyPage(driver);
