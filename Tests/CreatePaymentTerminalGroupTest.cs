@@ -21,9 +21,9 @@ namespace Non_Pocket_Pay.Tests
             IWebDriver driver = new ChromeDriver();
             HomePage home = new HomePage(driver);
 
-            globals.expRpt.createTest("Create Payment Terminals Groups");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Create Payment Terminals Groups");
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.createTest("Create Payment Terminals Groups");
+            GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Create Payment Terminals Groups");
+            GlobalFunctions.expRpt.flushReport();
 
             EditCompanyPage editCompany = new EditCompanyPage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
@@ -67,7 +67,7 @@ namespace Non_Pocket_Pay.Tests
                 addPyamentTerminalGroup.clickaddPyamentTerminalGroup();
 
                 // enter payment Terminal Group details     
-                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Enter Comapny Details");
+                GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Enter Comapny Details");
                 
                 addPyamentTerminalGroup.setPaymentTerminalName(data["StoreName"].ToString());
                 addPyamentTerminalGroup.setdeliveryLine(data["pt_deliveryLine"].ToString());                

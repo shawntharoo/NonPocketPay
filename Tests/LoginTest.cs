@@ -19,23 +19,23 @@ namespace Non_Pocket_Pay.Tests
             HomePage home = new HomePage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
 
-            globals.expRpt.createTest("Login Sucessfully Test");
+            GlobalFunctions.expRpt.createTest("Login Sucessfully Test");
 
             comFunc.loginToApplication();
 
             if (home.getText().Equals("Company List"))
             {
-                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "I have logged in");
+                GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "I have logged in");
             }
             else
             {
-                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "I haven't logged in");
+                GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "I haven't logged in");
             }
 
 
             //globals.expRpt.createTest("Login Not Sucessfully Test");
            // globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "Login Not Sucessfully Test");
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.flushReport();
 
             driver.Close();
             driver.Quit();
@@ -49,7 +49,7 @@ namespace Non_Pocket_Pay.Tests
             HomePage home = new HomePage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
 
-            globals.expRpt.createTest("Login Not Sucessfully Test");
+            GlobalFunctions.expRpt.createTest("Login Not Sucessfully Test");
 
             string fullpath = comFunc.getDatasourcePath();
             using (StreamReader file = File.OpenText(fullpath))
@@ -66,15 +66,15 @@ namespace Non_Pocket_Pay.Tests
 
             if (home.getloginText2().Equals("Login to your Cloud Eftpos account"))
                 {
-                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "I haven't logged in");
+                    GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "I haven't logged in");
 
                 }
                 else
                 {
-                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The User logged into the system");
+                    GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The User logged into the system");
                 }
 
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.flushReport();
 
             driver.Close();
             driver.Quit();

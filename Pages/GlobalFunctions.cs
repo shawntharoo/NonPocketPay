@@ -2,10 +2,9 @@
 
 namespace Non_Pocket_Pay.Pages
 {
-    static class globals
+    static class GlobalFunctions
     {
         public static ExtentReporter expRpt = new ExtentReporter();
-
      
     }
 }

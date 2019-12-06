@@ -20,9 +20,9 @@ namespace Non_Pocket_Pay.Tests
             CommonFunctions comFunc = new CommonFunctions(driver);
             DiagnosticinMaintenancePage maintenance = new DiagnosticinMaintenancePage(driver);
 
-            globals.expRpt.createTest("The Seril No in Used Test");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Seril No in Used");
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.createTest("The Seril No in Used Test");
+            GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Seril No in Used");
+            GlobalFunctions.expRpt.flushReport();
 
             string fullpath = comFunc.getDatasourcePath();
             using (StreamReader file = File.OpenText(fullpath))
@@ -61,9 +61,9 @@ namespace Non_Pocket_Pay.Tests
             CommonFunctions comFunc = new CommonFunctions(driver);
             DiagnosticinMaintenancePage maintenance = new DiagnosticinMaintenancePage(driver);
 
-            globals.expRpt.createTest("The Seril No is not in Used");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Seril No is not in Used");
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.createTest("The Seril No is not in Used");
+            GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Seril No is not in Used");
+            GlobalFunctions.expRpt.flushReport();
 
             string fullpath = comFunc.getDatasourcePath();
             using (StreamReader file = File.OpenText(fullpath))

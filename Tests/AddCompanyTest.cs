@@ -8,6 +8,7 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using DataDriven.Utilities;
 
 namespace Non_Pocket_Pay.Tests
 {
@@ -19,8 +20,8 @@ namespace Non_Pocket_Pay.Tests
             
             IWebDriver driver = new ChromeDriver();
             HomePage home = new HomePage(driver);
-
-            globals.expRpt.createTest("Add Company Test");
+             ExtentReporter expRpt = new ExtentReporter();
+        expRpt.createTest("Add Company Test");
 
 
             AddCompanyPage addCompany = new AddCompanyPage(driver);
@@ -49,7 +50,7 @@ namespace Non_Pocket_Pay.Tests
                     Assert.AreEqual("Company Information", addCompany.getcompanyInfor());
                     // enter comapny details  
 
-                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Enter Comapny details");
+                    GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Enter Comapny details");
 
                     addCompany.setCompanyName(companies[i]["Company_Name"].ToString());
                     addCompany.setCustomerType((string)companies[i]["Customer_Type"]);
@@ -87,14 +88,14 @@ namespace Non_Pocket_Pay.Tests
 
                     if(comp == companies[i]["Company_Name"].ToString())
                     {
-                        globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
+                        GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
                     }
                     else
                     {
-                        globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
+                        GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
                     }
 
-                    globals.expRpt.flushReport();
+                    GlobalFunctions.expRpt.flushReport();
                 }
             }
 

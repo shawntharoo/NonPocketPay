@@ -18,9 +18,9 @@ namespace Non_Pocket_Pay.Tests
         {
             IWebDriver driver = new ChromeDriver();
             HomePage home = new HomePage(driver);
-            globals.expRpt.createTest("Edit company test");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Company updated sucessfully");
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.createTest("Edit company test");
+            GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The Company updated sucessfully");
+            GlobalFunctions.expRpt.flushReport();
 
             EditCompanyPage editCompany = new EditCompanyPage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
@@ -51,11 +51,11 @@ namespace Non_Pocket_Pay.Tests
                 Assert.AreEqual("Edit a company", editCompany.geteditcompanyBanner());
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(300);
                 //enter comapny details
-                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Update the Company name");
+                GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Update the Company name");
                 editCompany.setCompanyName(data["editCompany_Name"].ToString());
-                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Update the Company type");
+                GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Update the Company type");
                 editCompany.setCompanyName(data["editCustomer_Type"].ToString());
-                globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Save Company details");
+                GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Info, "Save Company details");
                 //editCompany.clickcontactSurcharging();
                 editCompany.clickSave();
 
@@ -63,11 +63,11 @@ namespace Non_Pocket_Pay.Tests
 
                 if (home.getText().Equals("Company List"))
                 {
-                    globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Company details updated sucessfully");
+                    GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Company details updated sucessfully");
                 }
                 else
                 {
-                    globals. expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "Company is not in the system to edit");
+                    GlobalFunctions. expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "Company is not in the system to edit");
                 }
 
 

@@ -13,8 +13,8 @@ namespace Non_Pocket_Pay
     {
         static void Main(string[] args)
         {
-            globals.expRpt = new ExtentReporter();
-            globals.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
+            GlobalFunctions.expRpt = new ExtentReporter();
+            GlobalFunctions.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
 
             //LoginTest logint = new LoginTest();
             //logint.loginSucessfully();

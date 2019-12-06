@@ -23,9 +23,9 @@ namespace Non_Pocket_Pay.Tests
             HomePage home = new HomePage(driver);
             JSONReader JSRead = new JSONReader();
 
-            globals.expRpt.createTest("Payment Terminals Groups");
-            globals.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Payment Terminals Groups");
-            globals.expRpt.flushReport();
+            GlobalFunctions.expRpt.createTest("Payment Terminals Groups");
+            GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "Payment Terminals Groups");
+            GlobalFunctions.expRpt.flushReport();
 
             EditCompanyPage editCompany = new EditCompanyPage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
