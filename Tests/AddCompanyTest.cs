@@ -81,16 +81,16 @@ namespace Non_Pocket_Pay.Tests
 
 
                 
-                    string comp = addCompany.GetSearchedCompany();
+                    //string comp = addCompany.GetSearchedCompany();
 
-                    if(comp == companies[i]["Company_Name"].ToString())
-                    {
-                        GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
-                    }
-                    else
-                    {
-                        GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
-                    }
+                    //if(comp == companies[i]["Company_Name"].ToString())
+                    //{
+                    //    GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Pass, "The company created sucessfully");
+                    //}
+                    //else
+                    //{
+                    //    GlobalFunctions.expRpt.logReportStatement(AventStack.ExtentReports.Status.Fail, "The company is not in the system");
+                    //}
 
                     GlobalFunctions.expRpt.flushReport();
                 }
