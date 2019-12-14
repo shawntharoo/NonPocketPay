@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
+using DataDriven.Utilities;
 
 namespace Non_Pocket_Pay.Tests
 {
@@ -15,7 +16,9 @@ namespace Non_Pocket_Pay.Tests
         [Test]
         public void addCompany()
         {
-            
+            GlobalFunctions.expRpt = new ExtentReporter();
+            GlobalFunctions.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
+
             IWebDriver driver = new ChromeDriver();
             HomePage home = new HomePage(driver);
             GlobalFunctions.expRpt.createTest("Add Company Test");

@@ -29,10 +29,10 @@
   "PostalZipCode": "3000",
   "companies": [
     {
-      "Company_Name": "QUESTComp0J6109",
+      "Company_Name": "QUESTComp0J6111",
       "companyType": "Customer",
       "Customer_Type": "Customer",
-      "Email": "QUESTComp0J6109@questps.com.au",
+      "Email": "QUESTComp0J6111@questps.com.au",
       "passwordcreate": "!@#QWEasd",
       "pinpadFile": "APT2 v5.52 Test",
       "reportingFrequency": "None",

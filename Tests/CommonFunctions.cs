@@ -32,7 +32,7 @@ namespace Non_Pocket_Pay.Common
 
         public string getDatasourcePath()
         {
-            string fullPath = Path.GetFullPath("Data_Source\\Data_Set.json");
+            string fullPath = Path.GetFullPath("D:\\Projects\\Non_Pocket_Pay\\Data_Source\\Data_Set.json");
             return fullPath;
         }
     }
