@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C3E17B1A-8258-476B-AECC-FB8BE10CBB49}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Non_Pocket_Pay</RootNamespace>
+    <AssemblyName>Non_Pocket_Pay</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Crc32C.NET, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Crc32C.NET.1.0.5.0\lib\net20\Crc32C.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.2.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.2.0\lib\net471\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtentReports, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExtentReports.4.0.3\lib\ExtentReports.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.17.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.17\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.10.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.10.1\lib\net452\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.10.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.10.1\lib\net452\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.10.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.10.1\lib\net452\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Libmongocrypt, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Libmongocrypt.1.0.0\lib\net452\MongoDB.Libmongocrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.24.0\lib\net45\SharpCompress.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Snappy.NET, Version=1.1.1.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Snappy.NET.1.1.1.8\lib\net45\Snappy.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pages\ConfigurePaymentTerminalPage.cs" />
+    <Compile Include="Pages\DonationTapRangeFunctionsPage.cs" />
+    <Compile Include="Pages\AddCompanyPage.cs" />
+    <Compile Include="Pages\DevicesPage.cs" />
+    <Compile Include="Pages\POSGatewayPage.cs" />
+    <Compile Include="Pages\SimNumberDetailsPage.cs" />
+    <Compile Include="Pages\MaintenancePage.cs" />
+    <Compile Include="Pages\PaymentTerminalGroupPage.cs" />
+    <Compile Include="Pages\PaymentTerminalsPage.cs" />
+    <Compile Include="Pages\EditCompanyPage.cs" />
+    <Compile Include="Pages\globals.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\MAddAdminUserPage.cs" />
+    <Compile Include="Pages\QR_TerminalCountsPage.cs" />
+    <Compile Include="Pages\QR_TransactionCountsPage.cs" />
+    <Compile Include="Pages\Quest_PinpadFileUpdateStatusPage.cs" />
+    <Compile Include="Pages\ReportsPage.cs" />
+    <Compile Include="Pages\SurchangeConfigurationPage.cs" />
+    <Compile Include="Pages\TerminalConfigurationPage.cs" />
+    <Compile Include="Pages\TerminalCountPage.cs" />
+    <Compile Include="Pages\TerminalCountReportByCompanyPage.cs" />
+    <Compile Include="Pages\UserFunctionsPage.cs" />
+    <Compile Include="Pages\UserLoginFunctionsPage.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\2004809_LoginSucessfullyTest.cs" />
+    <Compile Include="Tests\2004810_LoginNotsucessfullyTest.cs" />
+    <Compile Include="Tests\2004815-UserSignIn_CancelButtonTest.cs" />
+    <Compile Include="Tests\2004816-UserSignIn_ResetPasswordTest.cs" />
+    <Compile Include="Tests\2004827_AddCustomerCompanyTest.cs" />
+    <Compile Include="Tests\2004821_AddDealerCompanyTest.cs" />
+    <Compile Include="Tests\2004828_VisitCompanyTest.cs" />
+    <Compile Include="Tests\2004859_EditCompanyTest.cs" />
+    <Compile Include="Tests\2004860_CreatePaymentTerminalGroupTest.cs" />
+    <Compile Include="Tests\2004870_SerilNoNotUsedTest.cs" />
+    <Compile Include="Tests\2004873_CreatePaymentTerminalsTest.cs" />
+    <Compile Include="Tests\2004874_ConfigurationFirmwareforCompanylevelTest.cs" />
+    <Compile Include="Tests\2004879_ConfigurationAirpayforCompanylevelTest.cs" />
+    <Compile Include="Tests\2004892-AddPOSGatewayTest.cs" />
+    <Compile Include="Tests\2004893_EditPOSGatewayTest.cs" />
+    <Compile Include="Tests\2004894-DeletePOSGatewayTest.cs" />
+    <Compile Include="Tests\2004896_DeletePaymentTerminalGroupTest.cs" />
+    <Compile Include="Tests\2004897-CreateUserTest.cs" />
+    <Compile Include="Tests\2004898-EditUserTest.cs" />
+    <Compile Include="Tests\2004899-DeleteUserTest.cs" />
+    <Compile Include="Tests\2004955_SerialNoinUsedTest.cs" />
+    <Compile Include="Tests\2004958_AddPaymentTerminaltoCompanypoolTest.cs" />
+    <Compile Include="Tests\2004959_DeletePTfromCompanypoolTest.cs" />
+    <Compile Include="Tests\2004960_BlockPaymentTerminalsTest.cs" />
+    <Compile Include="Tests\2004961_ViewPaymentTerminalGroupTest.cs" />
+    <Compile Include="Tests\2004962_EditPaymentTerminalsTest.cs" />
+    <Compile Include="Tests\2004963-AddSimNumberDetailsTest.cs" />
+    <Compile Include="Tests\2004964-DeleteSimNumberTest.cs" />
+    <Compile Include="Tests\2004965-EditSimNumberTest.cs" />
+    <Compile Include="Tests\2004972-AddNewDeviceTest.cs" />
+    <Compile Include="Tests\2004973-BlockExistingDeviceTest.cs" />
+    <Compile Include="Tests\2004974-UnblockDeviceTest.cs" />
+    <Compile Include="Tests\2004975_AddSimManagement_MaintenanceTest.cs" />
+    <Compile Include="Tests\2004976_DeleteSimManagement_MaintenanceTest.cs" />
+    <Compile Include="Tests\2004977-MAddAdminUserTest.cs" />
+    <Compile Include="Tests\2004978-MDeleteAdminUserTest.cs" />
+    <Compile Include="Tests\2004979-MEditAdminUserTest.cs" />
+    <Compile Include="Tests\2004980_AddDPTRangeTest.cs" />
+    <Compile Include="Tests\2004981-DeleteDPTRangeTest.cs" />
+    <Compile Include="Tests\2004982-EditDPTRangeTest.cs" />
+    <Compile Include="Tests\2004989_DisassociatePTfromCompanypoolTest.cs" />
+    <Compile Include="Tests\2004991_SurchargeConfigurationforCompanylevelTest.cs" />
+    <Compile Include="Tests\2004992_TerminalConfigurationforCompanylevelTest.cs" />
+    <Compile Include="Tests\2004993_SurchargeConfigurationforPTGlevelTest.cs" />
+    <Compile Include="Tests\2004994_TerminalConfigurationforPTGlevelTest.cs" />
+    <Compile Include="Tests\2004995_SurchargeConfigurationforPTlevelTest.cs" />
+    <Compile Include="Tests\2004996_TerminalConfigurationforPTlevelTest.cs" />
+    <Compile Include="Tests\2005011-TerminalCountReportTest.cs" />
+    <Compile Include="Tests\2005012-TerminalCountReportByCompanyTest.cs" />
+    <Compile Include="Tests\2005016-TransactionCountForAllCompaniesTest.cs" />
+    <Compile Include="Tests\2005017-TransCountApprovedAndDeclinedTest .cs" />
+    <Compile Include="Tests\2005018_ErroneousTransactionCountTest.cs" />
+    <Compile Include="Tests\2005019_ConfigurationFirmwareforPTGlevelTest.cs" />
+    <Compile Include="Tests\2005020_ConfigurationAirpayforPTGlevelTest.cs" />
+    <Compile Include="Tests\2005022_ConfigurationAirpayforPTlevelTest.cs" />
+    <Compile Include="Tests\2005021_ConfigurationFirmwareforPTlevelTest.cs" />
+    <Compile Include="Tests\2005023-Quest_PinpadFileUpdateStatusTest.cs" />
+    <Compile Include="Tests\2005045_UploadSimManagement_MaintenanceTest.cs" />
+    <Compile Include="Tests\AddKioskCompanyTest.cs" />
+    <Compile Include="Tests\CommonFunctions.cs" />
+    <Compile Include="Tests\CreateCompanyunderDealerTest.cs" />
+    <Compile Include="Tests\ReportsTest.cs" />
+    <Compile Include="Utilities\ExtentReport.cs" />
+    <Compile Include="Utilities\JSONReader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Content\select.min.css.map" />
+    <None Include="Data_Source\data.json" />
+    <None Include="Data_Source\Data_Set.json" />
+    <None Include="packages.config" />
+    <None Include="Scripts\select.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\select.css" />
+    <Content Include="Content\select.min.css" />
+    <Content Include="Scripts\select.js" />
+    <Content Include="Scripts\select.min.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+  <Import Project="..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets')" />
+</Project>

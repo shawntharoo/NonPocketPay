@@ -1,0 +1,127 @@
+﻿{  
+  "Incorrect_Password": "1234",
+  "Incorrect_UserName": "Janani",
+  "BillingCountry": "AUSTRALIA",
+  "BillingLine1": "17 Elysian Place",
+  "BillingPostcode": "3173",
+  "BillingState": "VIC",
+  "BillingSuburb": "Keysborough",
+  "Row_Count": "500",
+  "editCompany_Name":"Customer",
+  "editCustomer_Type":"Customer",
+  "searchCompany_Name": "Sams QA",
+  "searchtoEditCompany_Name": "QUESTComp01",
+  "setupCompany_Name2": "QUESTAutoComp01",
+  "pt_deliveryLine":"227 Burwood road",
+  "pt_postalSuburb":"Hawthorn",
+  "pt_state":"VIC",
+  "pt_postalCode":"3173",
+  "pt_country":"Australia",
+  "Serial_Number": "99991234",
+  "Serial_NumberNotUsed": "12345691",
+  "AdminSerialNo":"99995000",
+  "ReqLogUpload":"Enabled",
+  "MerchantId":"666666",
+  "TerminalId":"T-01",
+  "AdditionalInformation":"Stolen",
+  "POSId":"update",
+  "URL": "http://test.mel.cloudeftpos.com/Account/LogOn",
+  "User_Name": "QuestAdmin",
+  "password": "g@t[WAY",
+  "PostalCountry": "Australia",
+  "PostalLine1": "12 Collins Street",
+  "PostalSuburb": "Melbourne",
+  "PostalZipCode": "3000",
+  "DebitRate" : "2",
+  "VisaAmount" : "5",
+  "MastercardAmount":"1",
+  "AMEXRate":"2",
+  "SelectEnabled":"Enabled",
+  "StoreName": "Collins Street Store",
+  "AddStores" : "Collins Street Store 1",
+  "AddSerialNo":"99998001",
+  "AddSerialNotoPT":"99999005",
+  "DeletePTgroup":"Keysborough Store",
+  "EditPaymentTerminal":"Edit Payment Terminal 1",
+  "BlockPaymentTerminal":"Block Payment Terminal 1",
+  "editPTG":"Edit Payment Terminal Group",
+  "firmware" : "2.29_test.syd",
+  "airpay" :"6.26.b0032_full",
+  "SimNumber" :"9550555550",
+  "_Search_User": "Rajesh03",
+  "_GValue": "test 1",
+  "_Comment": "Edit User Test",
+  "DealerCompany_Name": "QUESTDealerComp0J01",
+  "_Value_Group_And_Stores": "Hawthorn",
+  "_Serial_Number": "Banie Test Store",
+  "_New_Sim" : "999950000",
+  "_Device_Name" : "New POS",
+  "_Search_Device" : "Rajesh-001",
+  "_M_First_Name":"QuestUser",
+  "_M_Last_Name" :"100",
+  "_M_Email" :"QuestUser100@questps.com.au",
+  "_M_Phone":"0410141015",
+  "_M_User_Name":"QuestUser100",
+  "_M_Password":"!@#QWEasd",
+  "_Edit_Admin_User" : "QA",
+  "_Edit_First_Name":"1",
+  "_Add_DPTRange_From" : "91.1",
+  "_Add_DPTRange_To":"99.0",
+  "_Edit_DPTRange_From":"80.01",
+  "_Edit_DPTRange_To":"50.0",
+  "_Reset_Email":"jananis@questps.com.au",
+  "_Edit_POS_Record":"Test171",
+  "_Trans_Count_DateFrom" : "30/12/2019",
+  "_Trans_Count_DateTo":"06/01/2020",
+  "companies": [
+    {
+      "Company_Name": "QUESTComp0J200",
+      "companyType": "Customer",
+      "Customer_Type": "Customer",
+      "Email": "QUESTComp0J200@questps.com.au",
+      "passwordcreate": "!@#QWEasd",
+      "pinpadFile": "5.62 AP2",
+      "reportingFrequency": "None",
+	  "Admin_Username": "QUESTAdminUser1",
+    }
+
+  ],
+
+    "dealercompanies": [
+    {
+      "Company_Name": "QUESTDealerComp0J51",
+      "dealercompanyType": "Dealer",
+      "dealerCustomer_Type": "Dealer",
+      "Email": "QUESTDealerComp0J51@questps.com.au",
+      "passwordcreate": "!@#QWEasd",
+      "pinpadFile": "5.62 AP2",
+      "reportingFrequency": "None",
+	    "Admin_Username": "QUESTAdminUser1",
+    }
+
+  ],
+
+  "users": [
+    {
+      "_User_Name": "Rajesh301",
+      "_Email": "jesh301@gmail.com",
+      "_Password": "Philips9!",
+      "_ConfirmPassword": "Philips9!",
+      "_Set_Role": "Admin"
+    }
+	
+  
+  ],
+  "_Sim_Numbers": [
+
+    "94405475723",
+    
+  
+  ],
+
+  "_POS_Gateway_Name": [
+    "Test101",
+    
+    
+  ]
+}

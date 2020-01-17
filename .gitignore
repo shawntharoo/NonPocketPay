@@ -1,0 +1,9 @@
+.vs/
+packages/
+Non_Pocket_Pay/obj/
+Non_Pocket_Pay/bin/Debug/
+Non_Pocket_Pay/bin/Release/
+Non_Pocket_Pay/packages.config
+
+
+
