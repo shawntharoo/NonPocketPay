@@ -28,9 +28,10 @@ namespace Non_Pocket_Pay.Tests
         public string getDatasourcePath()
         {
             string fileName = "Data_Set.json";
-            string dataSourcePath = System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
-            string fullPath = Path.Combine(dataSourcePath, @"Data_Source\", fileName);
-            //string fullPath = Path.GetFullPath("D:/Projects/Non_Pocket_Pay/Non_Pocket_Pay/Data_Source/Data_Set.json");
+            //string dataSourcePath = System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
+            //string fullPath = Path.Combine(dataSourcePath, @"Data_Source\", fileName);
+            string fullPath = Path.GetFullPath("C:/Data_Source/Data_Set.json");
+
             return fullPath;
 
         }
