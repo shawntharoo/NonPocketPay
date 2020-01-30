@@ -6,21 +6,38 @@
 
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Firefox;
 using NUnit.Framework;
 using Non_Pocket_Pay.Pages;
 using DataDriven.Utilities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Non_Pocket_Pay.Tests
 {
     class LoginSucessfullyTest
     {
         [Test]
-        public void TC2004809_LoginSucessfully()
+        public void TC2004809_LoginSucessfully(string browserName)
         {
             globals.expRpt = new ExtentReporter();
             globals.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
 
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver;
+
+            if (browserName.Equals("ie"))
+            {
+                driver = new InternetExplorerDriver();
+            }
+            else if (browserName.Equals("fireforx"))
+            {
+                driver = new FirefoxDriver();
+            }
+            else
+            {
+                driver = new ChromeDriver();
+            }
+
             HomePage home = new HomePage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
 

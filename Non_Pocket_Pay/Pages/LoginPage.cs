@@ -5,6 +5,7 @@
 // Version - 0.0.01
 
 using OpenQA.Selenium;
+using System.Threading;
 
 
 namespace Non_Pocket_Pay.Pages
@@ -30,11 +31,14 @@ namespace Non_Pocket_Pay.Pages
         public void setPassword(string varpassword)
         {
             driver.FindElement(password).SendKeys(varpassword);
+            Thread.Sleep(10000);
         }
 
         public void clickLogin()
         {
             driver.FindElement(loginButton).Click();
+            Thread.Sleep(10000);
+
         }
     }
 }
