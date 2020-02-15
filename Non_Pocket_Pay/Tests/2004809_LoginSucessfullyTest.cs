@@ -4,39 +4,31 @@
 // Updated Date - 26/11/2019
 // Version - 0.0.01
 
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Firefox;
 using NUnit.Framework;
 using Non_Pocket_Pay.Pages;
 using DataDriven.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Firefox;
+using System.Collections.Generic;
+using System;
 
 namespace Non_Pocket_Pay.Tests
 {
+    [TestFixture]
+    [Parallelizable]
     class LoginSucessfullyTest
     {
         [Test]
+        [TestCaseSource(typeof(globals),"BrowserToRunWith")]
         public void TC2004809_LoginSucessfully(string browserName)
         {
+            IWebDriver driver;
             globals.expRpt = new ExtentReporter();
             globals.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
-
-            IWebDriver driver;
-
-            if (browserName.Equals("ie"))
-            {
-                driver = new InternetExplorerDriver();
-            }
-            else if (browserName.Equals("fireforx"))
-            {
-                driver = new FirefoxDriver();
-            }
-            else
-            {
-                driver = new ChromeDriver();
-            }
+            driver = globals.selectBrowser(browserName);
 
             HomePage home = new HomePage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);

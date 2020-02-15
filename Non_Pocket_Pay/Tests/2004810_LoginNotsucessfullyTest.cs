@@ -16,16 +16,20 @@ using DataDriven.Utilities;
 
 namespace Non_Pocket_Pay.Tests
 {
+    [TestFixture]
+    [Parallelizable]
     class LoginNotsucessfullyTest
     {
 
         [Test]
-        public void TC2004810_LoginNotsucessfully()
+        [TestCaseSource(typeof(globals), "BrowserToRunWith")]
+        public void TC2004810_LoginNotsucessfully(string browserName)
         {
             globals.expRpt = new ExtentReporter();
             globals.expRpt.setupExtentReport("Automation Framework", "Non-Pocket framwork");
 
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = globals.selectBrowser(browserName);
+
             HomePage home = new HomePage(driver);
             CommonFunctions comFunc = new CommonFunctions(driver);
 

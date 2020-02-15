@@ -13,7 +13,7 @@ namespace Non_Pocket_Pay
 
             // TC2004809 - Login Sucessfully
             LoginSucessfullyTest loginsucessfully = new LoginSucessfullyTest();
-            loginsucessfully.TC2004809_LoginSucessfully("fireforx");
+            loginsucessfully.TC2004809_LoginSucessfully("ie");
 
             //// TC2004810 - Login not Sucessfully
             //LoginNotsucessfullyTest loginnotsucessfully = new LoginNotsucessfullyTest();

@@ -14,6 +14,9 @@ using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using Non_Pocket_Pay.Pages;
 using DataDriven.Utilities;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Firefox;
 
 
 namespace Non_Pocket_Pay.Tests
